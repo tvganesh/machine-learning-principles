@@ -12,14 +12,10 @@ function [J] = test_samples(test_data, randidx, theta, degree)
 [mtest n] = size(test_data);
 xtest = test_data(:, 1:n-1); 
 ytest = test_data(:, n); 
-
 xtest = poly(xtest,degree);
-
 % Scale features and set them to zero mean
 %fprintf('Normalizing Features - CV ...\n');
-
 [xtest mu sigma] = featureNormalize(xtest);
-
 % Add intercept term to X
 printf("1\n");
 xtest = [ones(mtest, 1) xtest];

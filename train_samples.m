@@ -45,14 +45,11 @@ for i = 1:length(alpha_arr),
      num_iters = 400;
     
    % Init Theta and Run Gradient Descent 
-
 	% Perform Gradient descent
-   
     J = computeCost(xtrain,ytrain,theta);
        
 	% Compute the cost for the cross validation samples with the computed theta	from the training samples
 	Jcv  = cross_validate(cross_validation, randidx, theta,degree);
-	
 	% Compute the cost on the test samples with the computed theta from training samples
     Jtest = test_samples(test_data, randidx, theta,degree);
 	
@@ -63,7 +60,6 @@ for i = 1:length(alpha_arr),
 		 theta_lowest = theta;
 		 alpha_lowest = alpha;
 		 lambda_lowest = lambda;
-		
     endif;
 	
 	printf("J = %5.5f Jcv = %5.5f  Jtest = %5.5f \n", J, Jcv,Jtest);
@@ -75,14 +71,11 @@ for i = 1:length(alpha_arr),
 	theta_cost(row,5) = Jtest;
 	% Plot the convergence graph
      row = row + 1;
-	 
      hold on;
-	
     plot(1:numel(J_history), J_history, '-k', 'LineWidth', 2);
 		 
    end;
-   
- end;
+  end;
  val = 48 + degree;
 name = strcat("convergence",val);
 xlabel('Number of iterations');
@@ -102,7 +95,6 @@ elseif degree == 4
 end;
 ;
 hold off;
-
 
 row =1;
 for i = 1:length(alpha_arr),

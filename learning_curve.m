@@ -39,22 +39,16 @@ for i = 1: 100
 	 theta = zeros(d, 1);
 
     % Minimize using fmincg
- 	 
 	 J = computeCost(xsample, ysample, theta);
      Jtrain(i) = J;
-	 
 	 xsample_cv = xcv(1:i,:);
 	 ysample_cv = ycv(1:i,:);
 	 [xsample_cv] = poly(xsample_cv,degree);
 	 xsample_cv= [ones(i, 1) xsample_cv];
 	 J_cv = computeCost(xsample_cv, ysample_cv,theta)
-	   
 	 Jcv(i) = J_cv;
 end;
 
-
-%Jtrain;
-%Jcv;
 plot(1:numel(Jtrain), Jtrain, '-k', 'LineWidth', 2);
 hold on;
 plot(1:numel(Jcv), Jcv, '-m', 'LineWidth', 2);

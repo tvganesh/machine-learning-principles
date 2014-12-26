@@ -15,9 +15,7 @@ function [J J_history] = cross_validate(cross_validation, randidx, theta, degree
 xcv = cross_validation(:, 1:n-1);
 ycv = cross_validation(:, n); 
 xcv = poly(xcv,degree);
-
 ycv = cross_validation(:, n);   
-
 [xcv mu sigma] = featureNormalize(xcv);
 
 % Add intercept term to X
